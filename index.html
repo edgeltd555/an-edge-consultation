@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AN EDGE CONSULTATION LTD is a UK-based company focused on mobile app development and digital solutions.">
+  <meta name="theme-color" content="#102a56">
+  <title>AN EDGE CONSULTATION LTD | Mobile App Development</title>
+  <style>
+    :root {
+      --navy: #102a56;
+      --blue: #2563eb;
+      --cyan: #38bdf8;
+      --ink: #17233b;
+      --muted: #64748b;
+      --pale: #f3f7ff;
+      --white: #fff;
+      --line: #e5eaf3;
+      --shadow: 0 18px 55px rgba(16,42,86,.10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: #fff;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.94);
+      backdrop-filter: blur(14px); border-bottom: 1px solid rgba(229,234,243,.85);
+    }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.04em; color: var(--navy); }
+    .brand-mark {
+      width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px;
+      color: white; font-weight: 900; font-size: 20px;
+      background: linear-gradient(135deg, var(--blue), #0ea5e9);
+      box-shadow: 0 8px 20px rgba(37,99,235,.25);
+    }
+    .brand span:last-child { max-width: 235px; line-height: 1.15; font-size: 14px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: #40516e; font-size: 14px; font-weight: 650; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta, .btn {
+      display: inline-flex; align-items: center; justify-content: center; border-radius: 999px;
+      padding: 12px 20px; font-weight: 700; font-size: 14px; transition: .2s ease;
+    }
+    .nav-cta, .btn-primary { color: #fff; background: var(--blue); box-shadow: 0 9px 22px rgba(37,99,235,.22); }
+    .nav-cta:hover, .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .hero {
+      position: relative; overflow: hidden; padding: 105px 0 100px;
+      background: radial-gradient(circle at 85% 18%, rgba(56,189,248,.22), transparent 28%),
+                  radial-gradient(circle at 10% 95%, rgba(37,99,235,.12), transparent 30%),
+                  linear-gradient(135deg, #f7faff 0%, #edf5ff 52%, #f9fcff 100%);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 65px; align-items: center; }
+    .eyebrow { display: inline-flex; gap: 9px; align-items: center; color: var(--blue); font-size: 12px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .eyebrow:before { content: ""; width: 25px; height: 2px; background: var(--cyan); }
+    h1 { margin: 20px 0 22px; color: var(--navy); font-size: clamp(42px, 5.6vw, 66px); line-height: 1.06; letter-spacing: -.055em; }
+    h1 span { color: var(--blue); }
+    .hero p { max-width: 590px; color: #53647f; font-size: 18px; margin: 0 0 30px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; }
+    .btn-secondary { color: var(--navy); border: 1px solid #cbd8eb; background: rgba(255,255,255,.75); }
+    .btn-secondary:hover { border-color: var(--blue); color: var(--blue); }
+    .visual { min-height: 360px; position: relative; display: grid; place-items: center; }
+    .orb { width: 290px; height: 290px; border-radius: 50%; background: linear-gradient(145deg, #2563eb, #38bdf8); opacity: .13; position: absolute; }
+    .device {
+      position: relative; width: 218px; height: 340px; border: 9px solid #142d55; border-radius: 34px;
+      background: white; box-shadow: 0 28px 60px rgba(16,42,86,.22); padding: 26px 15px 16px;
+      transform: rotate(-5deg);
+    }
+    .device:before { content: ""; position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 58px; height: 7px; border-radius: 9px; background: #142d55; }
+    .screen-top { height: 85px; border-radius: 18px; padding: 15px; color: white; background: linear-gradient(135deg, #1d4ed8, #38bdf8); }
+    .screen-top small { font-size: 9px; opacity: .85; }
+    .screen-top strong { display: block; font-size: 17px; line-height: 1.2; margin-top: 8px; }
+    .screen-card { height: 48px; margin-top: 12px; border-radius: 12px; background: #f0f5ff; display: flex; align-items: center; padding: 9px; gap: 9px; }
+    .screen-dot { width: 27px; height: 27px; border-radius: 9px; background: linear-gradient(135deg, #60a5fa, #2563eb); }
+    .screen-lines { flex: 1; }
+    .screen-lines i { display: block; height: 5px; margin: 4px 0; border-radius: 8px; background: #c9d8f1; }
+    .screen-lines i:last-child { width: 65%; }
+    .float-card { position: absolute; right: 0; bottom: 35px; background: white; padding: 14px 17px; border-radius: 16px; box-shadow: var(--shadow); color: var(--navy); font-size: 13px; font-weight: 750; }
+    .float-card span { display: block; color: var(--muted); font-size: 11px; font-weight: 500; }
+    section { padding: 88px 0; }
+    .section-head { max-width: 650px; margin: 0 auto 45px; text-align: center; }
+    .section-head h2 { margin: 12px 0; color: var(--navy); font-size: clamp(30px, 4vw, 42px); line-height: 1.15; letter-spacing: -.04em; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 55px; align-items: center; }
+    .about-panel { padding: 34px; border-radius: 24px; color: white; background: linear-gradient(145deg, #102a56, #1e55a5); box-shadow: var(--shadow); }
+    .about-panel .big { font-size: 42px; font-weight: 850; line-height: 1; letter-spacing: -.05em; }
+    .about-panel p { color: #d7e6ff; margin-bottom: 0; }
+    .about-copy h2 { color: var(--navy); font-size: 36px; line-height: 1.15; letter-spacing: -.04em; margin: 0 0 18px; }
+    .about-copy p { color: var(--muted); }
+    .services { background: var(--pale); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { padding: 28px; background: white; border: 1px solid #e8eef8; border-radius: 20px; box-shadow: 0 10px 30px rgba(16,42,86,.045); }
+    .card-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 15px; color: var(--blue); background: #eaf2ff; font-size: 22px; }
+    .card h3 { margin: 19px 0 8px; color: var(--navy); font-size: 19px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; counter-reset: steps; }
+    .step { border-top: 2px solid #dbeafe; padding-top: 22px; }
+    .step-number { color: var(--blue); font-size: 12px; font-weight: 850; letter-spacing: .12em; }
+    .step h3 { color: var(--navy); margin: 9px 0 6px; }
+    .step p { color: var(--muted); font-size: 14px; margin: 0; }
+    .contact { background: linear-gradient(135deg, #102a56, #174c91); color: white; }
+    .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+    .contact h2 { font-size: clamp(30px, 4vw, 42px); line-height: 1.15; margin: 0 0 12px; letter-spacing: -.04em; }
+    .contact p { color: #d5e4fa; margin: 0; max-width: 570px; }
+    .contact .btn { flex-shrink: 0; background: white; color: var(--navy); }
+    footer { background: #0b1d3a; color: #b9c8df; padding: 30px 0; font-size: 13px; }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a:hover { color: white; }
+    .legal { background: #f8faff; padding: 58px 0; border-top: 1px solid var(--line); }
+    .legal h2 { color: var(--navy); font-size: 25px; margin: 0 0 12px; }
+    .legal h3 { color: var(--navy); font-size: 16px; margin: 22px 0 5px; }
+    .legal p { color: var(--muted); font-size: 13px; margin: 7px 0; }
+    .legal-block { max-width: 850px; margin: 0 auto 36px; }
+    @media (max-width: 800px) {
+      .nav-links { display: none; }
+      .hero { padding: 75px 0 65px; }
+      .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .visual { min-height: 330px; }
+      .cards, .approach-grid { grid-template-columns: 1fr; }
+      section { padding: 68px 0; }
+      .contact-inner { align-items: flex-start; flex-direction: column; }
+      .about-panel { order: 2; }
+    }
+    @media (max-width: 440px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .brand span:last-child { max-width: 165px; font-size: 12px; }
+      .nav-cta { padding: 10px 14px; font-size: 12px; }
+      .hero p { font-size: 16px; }
+      .float-card { right: -2px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="AN EDGE CONSULTATION LTD home">
+        <span class="brand-mark">A</span>
+        <span>AN EDGE<br>CONSULTATION LTD</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#approach">Our Approach</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Contact Us</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Mobile App Development</div>
+          <h1>Building digital ideas into <span>useful experiences.</span></h1>
+          <p>AN EDGE CONSULTATION LTD is a UK-based company focused on mobile app development and digital solutions. We aim to make technology clear, practical and accessible through thoughtful digital experiences.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">Explore Our Services</a>
+            <a class="btn btn-secondary" href="#contact">Get in Touch</a>
+          </div>
+        </div>
+        <div class="visual" aria-hidden="true">
+          <div class="orb"></div>
+          <div class="device">
+            <div class="screen-top"><small>YOUR NEXT DIGITAL IDEA</small><strong>Designed to<br>make an impact.</strong></div>
+            <div class="screen-card"><span class="screen-dot"></span><span class="screen-lines"><i></i><i></i></span></div>
+            <div class="screen-card"><span class="screen-dot"></span><span class="screen-lines"><i></i><i></i></span></div>
+            <div class="screen-card"><span class="screen-dot"></span><span class="screen-lines"><i></i><i></i></span></div>
+            <div class="screen-card"><span class="screen-dot"></span><span class="screen-lines"><i></i><i></i></span></div>
+          </div>
+          <div class="float-card">Digital solutions<span>Ideas shaped with purpose</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about-grid">
+        <div class="about-panel">
+          <div class="big">Ideas.<br>Technology.<br>Progress.</div>
+          <p>Practical digital thinking, with a focus on useful mobile experiences.</p>
+        </div>
+        <div class="about-copy">
+          <div class="eyebrow">About our company</div>
+          <h2>Technology with purpose.</h2>
+          <p>AN EDGE CONSULTATION LTD is a United Kingdom-based company with a focus on mobile application development. We are interested in creating digital products that are straightforward to use and designed around real user needs.</p>
+          <p>Our approach values thoughtful planning, clear communication and a commitment to improving digital experiences through technology.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">What we do</div>
+          <h2>Digital services built around your ideas.</h2>
+          <p>Our areas of focus include the planning, development and improvement of mobile and digital experiences.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">▣</div>
+            <h3>Mobile App Development</h3>
+            <p>Creating mobile application experiences with a focus on usability, functionality and thoughtful design.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">✧</div>
+            <h3>App Design & Experience</h3>
+            <p>Planning clear app journeys and intuitive interfaces that help people use digital products with confidence.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon">⌘</div>
+            <h3>Digital Solutions</h3>
+            <p>Exploring practical technology solutions to support ideas, services and everyday digital needs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Our approach</div>
+          <h2>A thoughtful process, from idea to experience.</h2>
+          <p>We believe useful digital products begin with understanding the purpose behind them.</p>
+        </div>
+        <div class="approach-grid">
+          <div class="step"><div class="step-number">01 / UNDERSTAND</div><h3>Start with the idea</h3><p>Understand the purpose, intended users and goals behind a digital product.</p></div>
+          <div class="step"><div class="step-number">02 / CREATE</div><h3>Plan the experience</h3><p>Consider structure, usability and the features that make an app practical.</p></div>
+          <div class="step"><div class="step-number">03 / IMPROVE</div><h3>Keep moving forward</h3><p>Value feedback and continuous improvement as digital products evolve.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-inner">
+        <div>
+          <h2>Have a digital idea in mind?</h2>
+          <p>Contact AN EDGE CONSULTATION LTD to get in touch about mobile app development and digital solutions.</p>
+        </div>
+        <a class="btn" href="mailto:edgeconsultantltd555@gmail.com">Email Our Company ↗</a>
+      </div>
+    </section>
+
+    <section class="legal" id="privacy">
+      <div class="wrap">
+        <div class="legal-block">
+          <h2>Privacy Policy</h2>
+          <p><strong>Last updated: 26 November 2026</strong></p>
+          <p>AN EDGE CONSULTATION LTD respects your privacy. This website is an informational company website. This policy explains how information may be handled when you visit this website or contact us by email.</p>
+          <h3>Information you provide</h3>
+          <p>If you contact us by email, we will receive the information you choose to include in your message, such as your email address and the contents of your enquiry. We use this information to respond to your request and communicate with you.</p>
+          <h3>Website data</h3>
+          <p>Our website hosting provider may process basic technical information, such as server logs, to operate and protect the website. This page does not intentionally request sensitive personal information.</p>
+          <h3>Sharing and retention</h3>
+          <p>We do not sell personal information. We may disclose information where required by law or where necessary to protect our rights and the security of our services. We retain correspondence only for as long as reasonably needed for its purpose or legal obligations.</p>
+          <h3>Your choices and contact</h3>
+          <p>You can choose what information to include when emailing us. For privacy-related questions or requests, contact <a href="mailto:edgeconsultantltd555@gmail.com">edgeconsultantltd555@gmail.com</a>.</p>
+          <p>If the company later adds analytics, contact forms, advertising, or other third-party services, this policy should be updated to accurately describe those tools and their data practices.</p>
+        </div>
+        <div class="legal-block" id="terms">
+          <h2>Terms of Use</h2>
+          <p><strong>Last updated: 26 November 2026</strong></p>
+          <p>By accessing this website, you agree to use it lawfully and not to interfere with its operation or attempt to access it in an unauthorised way.</p>
+          <h3>Website information</h3>
+          <p>The content on this website is provided for general information about AN EDGE CONSULTATION LTD and its areas of focus. We aim to keep information accurate, but make no guarantee that all content is complete, current or suitable for every purpose.</p>
+          <h3>Intellectual property</h3>
+          <p>Unless stated otherwise, website text, branding and design elements are owned by or used by AN EDGE CONSULTATION LTD. You may not reproduce substantial parts of this website for commercial purposes without permission.</p>
+          <h3>External links and changes</h3>
+          <p>This website may be updated or changed at any time. We are not responsible for the content or privacy practices of external websites.</p>
+          <h3>Contact</h3>
+          <p>Questions about these terms can be sent to <a href="mailto:edgeconsultantltd555@gmail.com">edgeconsultantltd555@gmail.com</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <div>© <span id="year">2026</span> AN EDGE CONSULTATION LTD. All rights reserved.</div>
+      <div class="footer-links"><a href="#privacy">Privacy Policy</a><a href="#terms">Terms of Use</a><a href="mailto:edgeconsultantltd555@gmail.com">Contact</a></div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
